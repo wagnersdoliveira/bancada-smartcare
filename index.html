@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bancada Smart Care</title>
+<meta name="description" content="Indicações do técnico da Smart Care Campinas: SSD, memória, notebooks, roteadores e acessórios, com o que conferir antes de comprar.">
+<meta property="og:title" content="Bancada Smart Care · o que eu indico">
+<meta property="og:description" content="Peças e notebooks que eu indico na bancada, com o que conferir antes de comprar.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b1424">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: ficha de bancada. Cada produto é uma ordem de serviço: sintoma → indicação → atenção. Tema escuro único, padrão da marca. */
+:root{
+  --noite:#0b1424; --noite-2:#101c30; --placa:#16213a; --linha:#24324d;
+  --texto:#e6edf6; --suave:#94a3b8; --ciano:#22d3ee; --teal:#2dd4bf; --alerta:#fbbf24;
+  --f-display:"Poppins",system-ui,sans-serif; --f-corpo:"IBM Plex Sans",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--noite);color:var(--texto);font:16px/1.6 var(--f-corpo);margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+.wrap{max-width:1080px;margin:0 auto}
+a{color:var(--ciano)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ciano);outline-offset:3px}
+
+header.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:20px;border-bottom:1px solid var(--linha);flex-wrap:wrap}
+.marca{font:700 1.15rem var(--f-display);letter-spacing:.01em}
+.marca span{color:var(--ciano)}
+.local{font:400 .78rem var(--f-mono);color:var(--suave);letter-spacing:.06em;text-transform:uppercase}
+
+.hero{padding-block:44px 28px;display:grid;gap:18px;max-width:760px}
+.hero .eyebrow{font:500 .78rem var(--f-mono);color:var(--teal);letter-spacing:.1em;text-transform:uppercase}
+.hero h1{font:700 clamp(1.9rem,4.6vw,3rem)/1.12 var(--f-display);margin:0;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--ciano)}
+.hero p{margin:0;color:var(--suave);max-width:62ch}
+.aviso{font-size:.86rem;color:var(--suave);border-left:2px solid var(--linha);padding-left:12px}
+
+nav.filtros{display:flex;gap:8px;flex-wrap:wrap;padding-block:8px 24px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--noite);z-index:5}
+nav.filtros button{font:500 .88rem var(--f-corpo);color:var(--texto);background:var(--noite-2);border:1px solid var(--linha);border-radius:999px;padding:8px 14px;cursor:pointer}
+nav.filtros button[aria-pressed="true"]{background:var(--ciano);color:var(--noite);border-color:var(--ciano)}
+
+section.grupo{display:grid;gap:16px;padding-block:12px 28px}
+section.grupo h2{font:600 1.25rem var(--f-display);margin:0}
+section.grupo > p{margin:0;color:var(--suave);font-size:.95rem;max-width:62ch}
+.grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+
+article.os{background:var(--placa);border:1px solid var(--linha);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.os .cab{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font:400 .72rem var(--f-mono);color:var(--suave);letter-spacing:.08em;text-transform:uppercase}
+.os .foto{background:#fff;border-radius:8px;display:grid;place-items:center;padding:12px;aspect-ratio:4/3;max-width:100%}
+.os .foto img{max-height:100%;width:auto;object-fit:contain}
+.os h3{font:600 1.05rem/1.35 var(--f-display);margin:0}
+.os dl{margin:0;display:grid;gap:10px}
+.os dt{font:500 .7rem var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
+.os dd{margin:2px 0 0;font-size:.93rem}
+.os dd.atencao{color:var(--texto)}
+.os dt.at{color:var(--alerta)}
+.os .cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font:600 .92rem var(--f-display);background:var(--ciano);color:var(--noite);border-radius:8px;padding:12px 14px}
+.os .cta:hover{background:var(--teal)}
+
+.balcao{margin-top:12px;background:var(--noite-2);border:1px solid var(--linha);border-radius:12px;padding:24px;display:grid;gap:12px}
+.balcao h2{font:600 1.3rem var(--f-display);margin:0;text-wrap:balance}
+.balcao p{margin:0;color:var(--suave);max-width:62ch}
+.zap{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.zap a{text-decoration:none;font:600 .95rem var(--f-display);background:var(--teal);color:var(--noite);border-radius:8px;padding:12px 16px}
+.zap code{font:500 1rem var(--f-mono);user-select:all}
+footer{padding-top:28px;font-size:.8rem;color:var(--suave)}
+@media (prefers-reduced-motion:no-preference){.os{transition:border-color .15s}.os:hover{border-color:var(--ciano)}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="top">
+    <div class="marca">Smart<span>Care</span></div>
+    <div class="local">Campinas · computadores, notebooks e Mac</div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Bancada do técnico</div>
+    <h1>O que eu indico quando o cliente pergunta <em>“o que eu compro?”</em></h1>
+    <p>Cada item aqui resolve um problema que aparece toda semana na bancada. Para cada um, digo para que serve, para quem não serve e o que conferir antes de comprar.</p>
+    <p class="aviso">Os botões levam ao Mercado Livre. Se você comprar por eles, a Smart Care recebe uma comissão do Mercado Livre e você paga o mesmo preço.</p>
+  </section>
+
+  <nav class="filtros" aria-label="Filtrar por problema">
+    <button type="button" data-f="todos" aria-pressed="true">Todos</button>
+    <button type="button" data-f="lento" aria-pressed="false">Computador lento</button>
+    <button type="button" data-f="notebook" aria-pressed="false">Comprar notebook</button>
+    <button type="button" data-f="homeoffice" aria-pressed="false">Home office</button>
+    <button type="button" data-f="wifi" aria-pressed="false">Wi‑Fi ruim</button>
+  </nav>
+
+  <section class="grupo" data-g="lento">
+    <h2>Computador lento</h2>
+    <p>Antes de trocar de máquina, veja se um upgrade resolve. Na maioria dos notebooks com HD mecânico, só a troca por SSD já muda o uso do dia a dia.</p>
+    <div class="grade">
+      <article class="os">
+        <div class="cab"><span>Upgrade</span><span>SSD NVMe</span></div>
+        <div class="foto"><img src="https://http2.mlstatic.com/D_Q_NP_2X_795091-MLA99417498242_112025-AB.webp" alt="SSD Kingston NV3 1TB M.2 NVMe PCIe 4.0" loading="lazy" width="220" height="220"></div>
+        <h3>SSD Kingston NV3 1TB M.2 NVMe PCIe 4.0</h3>
+        <dl>
+          <div><dt>Sintoma</dt><dd>Demora para ligar, programas lentos para abrir, disco sempre em 100% no Gerenciador de Tarefas.</dd></div>
+          <div><dt>Por que este</dt><dd>Marca com boa garantia e 1TB, espaço para não precisar trocar de novo tão cedo.</dd></div>
+          <div><dt class="at">Confira antes</dt><dd class="atencao">Seu computador precisa de slot M.2 NVMe (formato 2280). Em slot PCIe 3.0 ele funciona, com velocidade menor. Se o slot for só SATA, este não serve.</dd></div>
+        </dl>
+        <a class="cta" href="https://meli.la/2MogwLj" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+      </article>
+      <article class="os">
+        <div class="cab"><span>Upgrade</span><span>Memória</span></div>
+        <div class="foto"><img src="https://http2.mlstatic.com/D_Q_NP_2X_693746-MLU70993657582_082023-AB.webp" alt="Memória Kingston Fury Impact 8GB DDR4 3200MHz (notebook)" loading="lazy" width="220" height="220"></div>
+        <h3>Memória Kingston Fury Impact 8GB DDR4 3200MHz (notebook)</h3>
+        <dl>
+          <div><dt>Sintoma</dt><dd>Notebook com 4GB que trava com várias abas abertas ou com Teams e navegador juntos.</dd></div>
+          <div><dt>Por que este</dt><dd>Módulo de notebook (SODIMM) de marca conhecida, compatível com a maioria das placas DDR4.</dd></div>
+          <div><dt class="at">Confira antes</dt><dd class="atencao">Muitos notebooks têm memória soldada ou nenhum slot livre. Também precisa ser DDR4, não DDR3 nem DDR5. Na dúvida, me mande o modelo do notebook.</dd></div>
+        </dl>
+        <a class="cta" href="https://meli.la/2zqZDsd" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="grupo" data-g="notebook">
+    <h2>Comprar notebook</h2>
+    <p>Para estudo, escritório e uso de casa. Nenhum destes é para jogo pesado ou edição de vídeo profissional.</p>
+    <div class="grade">
+      <article class="os">
+        <div class="cab"><span>Orçamento curto</span><span>Windows 11</span></div>
+        <div class="foto"><img src="https://http2.mlstatic.com/D_Q_NP_2X_874571-MLA99984971829_112025-AB.webp" alt="ASUS Vivobook Go 15 · Ryzen 5 7520U · 8GB · SSD 256GB" loading="lazy" width="220" height="220"></div>
+        <h3>ASUS Vivobook Go 15 · Ryzen 5 7520U · 8GB · SSD 256GB</h3>
+        <dl>
+          <div><dt>Para quem</dt><dd>Estudante ou uso de escritório: navegador, Office, reuniões online.</dd></div>
+          <div><dt>Por que este</dt><dd>Processador Ryzen 5, SSD e tela Full HD na faixa de entrada. Já vem com Windows.</dd></div>
+          <div><dt class="at">Confira antes</dt><dd class="atencao">256GB enche rápido com fotos e vídeos. Considere um HD externo ou nuvem. Confira se a memória dá para expandir antes de contar com isso.</dd></div>
+        </dl>
+        <a class="cta" href="https://meli.la/1sA1X1N" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+      </article>
+      <article class="os">
+        <div class="cab"><span>Mais processador</span><span>Vem com Linux</span></div>
+        <div class="foto"><img src="https://http2.mlstatic.com/D_Q_NP_2X_695951-MLA99449832220_112025-AB.webp" alt="VAIO FE16 · Ryzen 7 5825U · 8GB · SSD 512GB" loading="lazy" width="220" height="220"></div>
+        <h3>VAIO FE16 · Ryzen 7 5825U · 8GB · SSD 512GB</h3>
+        <dl>
+          <div><dt>Para quem</dt><dd>Quem quer mais desempenho e mais espaço sem passar para a faixa de preço de cima.</dd></div>
+          <div><dt>Por que este</dt><dd>Ryzen 7 com 8 núcleos, SSD de 512GB e Wi‑Fi 6.</dd></div>
+          <div><dt class="at">Confira antes</dt><dd class="atencao">Vem com Linux. Para usar Windows, é preciso licença e instalação. A Smart Care faz a instalação e deixa tudo configurado.</dd></div>
+        </dl>
+        <a class="cta" href="https://meli.la/17fNcBQ" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+      </article>
+      <article class="os">
+        <div class="cab"><span>Trabalho</span><span>Windows 11</span></div>
+        <div class="foto"><img src="https://http2.mlstatic.com/D_Q_NP_2X_902725-MLA113038325332_072026-AB.webp" alt="Samsung Galaxy Book4 · Core i5‑1335U · 8GB · SSD 512GB" loading="lazy" width="220" height="220"></div>
+        <h3>Samsung Galaxy Book4 · Core i5‑1335U · 8GB · SSD 512GB</h3>
+        <dl>
+          <div><dt>Para quem</dt><dd>Uso profissional diário, quem carrega o notebook para lá e para cá.</dd></div>
+          <div><dt>Por que este</dt><dd>Core i5 de 13ª geração, 512GB, tela 15,6" Full HD e 1,55kg.</dd></div>
+          <div><dt class="at">Confira antes</dt><dd class="atencao">8GB atende escritório. Se você usa planilhas muito pesadas ou muitos programas juntos, procure 16GB.</dd></div>
+        </dl>
+        <a class="cta" href="https://meli.la/2uxnqp6" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="grupo" data-g="homeoffice">
+    <h2>Home office</h2>
+    <p>Itens baratos que resolvem incômodos do dia inteiro.</p>
+    <div class="grade">
+      <article class="os">
+        <div class="cab"><span>Conexões</span><span>USB‑C</span></div>
+        <div class="foto"><img src="https://http2.mlstatic.com/D_Q_NP_2X_773393-MLA120237598049_102026-AB.webp" alt="Hub USB‑C Tantsa 8 em 1 · HDMI 4K, rede e USB 3.0" loading="lazy" width="220" height="220"></div>
+        <h3>Hub USB‑C Tantsa 8 em 1 · HDMI 4K, rede e USB 3.0</h3>
+        <dl>
+          <div><dt>Sintoma</dt><dd>Notebook ou MacBook com poucas portas, sem entrada de rede ou sem HDMI para o monitor.</dd></div>
+          <div><dt>Por que este</dt><dd>Uma peça só para monitor, cabo de rede e pendrives.</dd></div>
+          <div><dt class="at">Confira antes</dt><dd class="atencao">Para o HDMI funcionar, a porta USB‑C do seu notebook precisa transmitir vídeo. Nem toda USB‑C faz isso.</dd></div>
+        </dl>
+        <a class="cta" href="https://meli.la/2oVWx2L" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+      </article>
+      <article class="os">
+        <div class="cab"><span>Periférico</span><span>Bluetooth</span></div>
+        <div class="foto"><img src="https://http2.mlstatic.com/D_Q_NP_2X_778492-MLA99453781010_112025-AB.webp" alt="Mouse Logitech M240 sem fio" loading="lazy" width="220" height="220"></div>
+        <h3>Mouse Logitech M240 sem fio</h3>
+        <dl>
+          <div><dt>Sintoma</dt><dd>Touchpad cansando a mão, ou receptor USB ocupando a única porta livre.</dd></div>
+          <div><dt>Por que este</dt><dd>Logitech, conexão Bluetooth sem receptor, tamanho bom para levar na mochila.</dd></div>
+          <div><dt class="at">Confira antes</dt><dd class="atencao">Seu computador precisa ter Bluetooth. A maioria dos notebooks tem; muitos desktops não.</dd></div>
+        </dl>
+        <a class="cta" href="https://meli.la/24ytqMo" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+      </article>
+      <article class="os">
+        <div class="cab"><span>Reuniões</span><span>USB</span></div>
+        <div class="foto"><img src="https://http2.mlstatic.com/D_Q_NP_2X_807092-MLA100966388363_122025-AB.webp" alt="Webcam Full HD 1080p com microfone" loading="lazy" width="220" height="220"></div>
+        <h3>Webcam Full HD 1080p com microfone</h3>
+        <dl>
+          <div><dt>Sintoma</dt><dd>Câmera do notebook com imagem ruim nas reuniões, ou desktop sem câmera.</dd></div>
+          <div><dt>Por que este</dt><dd>Barata, liga direto na USB e já tem microfone.</dd></div>
+          <div><dt class="at">Confira antes</dt><dd class="atencao">É uma câmera para reunião. Para gravar conteúdo ou ambiente com pouca luz, invista em um modelo de marca.</dd></div>
+        </dl>
+        <a class="cta" href="https://meli.la/15Dd8i5" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="grupo" data-g="wifi">
+    <h2>Wi‑Fi ruim</h2>
+    <p>Muitas vezes o problema não é a internet contratada, é o roteador que a operadora deixou.</p>
+    <div class="grade">
+      <article class="os">
+        <div class="cab"><span>Roteador</span><span>Wi‑Fi 5</span></div>
+        <div class="foto"><img src="https://http2.mlstatic.com/D_Q_NP_2X_665973-MLA95688273664_102025-AB.webp" alt="Mercusys MR30G AC1200 · Gigabit · dual band" loading="lazy" width="220" height="220"></div>
+        <h3>Mercusys MR30G AC1200 · Gigabit · dual band</h3>
+        <dl>
+          <div><dt>Sintoma</dt><dd>Wi‑Fi cai, fica lento à noite ou não chega bem no quarto. Apartamento ou casa pequena.</dd></div>
+          <div><dt>Por que este</dt><dd>Barato, portas Gigabit e rede 5GHz. Fabricado pela TP‑Link.</dd></div>
+          <div><dt class="at">Confira antes</dt><dd class="atencao">Em casa grande ou com muitas paredes, um roteador só não resolve. Nesse caso, o caminho é rede mesh.</dd></div>
+        </dl>
+        <a class="cta" href="https://meli.la/1HDFsYp" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+      </article>
+      <article class="os">
+        <div class="cab"><span>Roteador</span><span>Wi‑Fi 6 · mesh</span></div>
+        <div class="foto"><img src="https://http2.mlstatic.com/D_Q_NP_2X_916355-MLA99519645034_112025-AB.webp" alt="TP‑Link EX521 Wi‑Fi 6 · EasyMesh · Gigabit" loading="lazy" width="220" height="220"></div>
+        <h3>TP‑Link EX521 Wi‑Fi 6 · EasyMesh · Gigabit</h3>
+        <dl>
+          <div><dt>Para quem</dt><dd>Plano de internet acima de 300 mega e muitos aparelhos conectados ao mesmo tempo.</dd></div>
+          <div><dt>Por que este</dt><dd>Wi‑Fi 6 e EasyMesh: depois dá para somar outro aparelho e cobrir a casa toda.</dd></div>
+          <div><dt class="at">Confira antes</dt><dd class="atencao">Celulares e notebooks antigos não usam Wi‑Fi 6. Ele funciona com todos, mas o ganho maior é nos aparelhos novos.</dd></div>
+        </dl>
+        <a class="cta" href="https://meli.la/2fuxH3a" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="balcao">
+    <h2>Não sabe se serve no seu computador?</h2>
+    <p>Me mande o modelo do seu notebook ou uma foto da etiqueta de baixo antes de comprar. Eu confiro a compatibilidade. Se quiser, a Smart Care faz a instalação, a clonagem do sistema e a configuração.</p>
+    <div class="zap">
+      <a href="https://wa.me/5519981821478?text=Oi%2C%20vi%20a%20Bancada%20Smart%20Care%20e%20quero%20conferir%20uma%20pe%C3%A7a" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      <code>(19) 98182‑1478</code>
+    </div>
+  </section>
+
+  <footer>Smart Care Campinas · @smartcare.campinas · Preços e estoque mudam todo dia: confira no Mercado Livre antes de comprar. Lista revisada em novembro de 2026.</footer>
+</div>
+
+<script>
+const btns=[...document.querySelectorAll('nav.filtros button')];
+const grupos=[...document.querySelectorAll('section.grupo')];
+function aplicar(f){
+  btns.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.f===f)));
+  grupos.forEach(g=>{g.hidden=!(f==='todos'||g.dataset.g===f)});
+}
+btns.forEach(b=>b.addEventListener('click',()=>{aplicar(b.dataset.f);if(location.hash!=='#'+b.dataset.f)history.replaceState(null,'','#'+b.dataset.f)}));
+const h=location.hash.slice(1);if(btns.some(b=>b.dataset.f===h))aplicar(h);
+</script>
+
+</body>
+</html>
