@@ -15,7 +15,7 @@
 /* Layout: ficha de bancada. Cada produto é uma ordem de serviço: sintoma → indicação → atenção. Tema escuro único, padrão da marca. */
 :root{
   --noite:#0b1424; --noite-2:#101c30; --placa:#16213a; --linha:#24324d;
-  --texto:#e6edf6; --suave:#94a3b8; --ciano:#22d3ee; --teal:#2dd4bf; --alerta:#fbbf24;
+  --texto:#e6edf6; --suave:#94a3b8; --ciano:#22d3ee; --teal:#2dd4bf; --alerta:#fbbf24; --ml:#ffe600; --ml-texto:#2d3277;
   --f-display:"Poppins",system-ui,sans-serif; --f-corpo:"IBM Plex Sans",system-ui,sans-serif; --f-mono:"IBM Plex Mono",ui-monospace,monospace;
   color-scheme:dark;
 }
@@ -57,8 +57,9 @@ article.os{background:var(--placa);border:1px solid var(--linha);border-radius:1
 .os dd{margin:2px 0 0;font-size:.93rem}
 .os dd.atencao{color:var(--texto)}
 .os dt.at{color:var(--alerta)}
-.os .cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font:600 .92rem var(--f-display);background:var(--ciano);color:var(--noite);border-radius:8px;padding:12px 14px}
-.os .cta:hover{background:var(--teal)}
+.os .cta{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font:600 .95rem var(--f-display);background:var(--ml);color:var(--ml-texto);border-radius:8px;padding:13px 14px}
+.os .cta:hover{filter:brightness(.95)}
+.os .ml-nota{margin:-6px 0 0;font-size:.78rem;color:var(--suave);text-align:center}
 
 .balcao{margin-top:12px;background:var(--noite-2);border:1px solid var(--linha);border-radius:12px;padding:24px;display:grid;gap:12px}
 .balcao h2{font:600 1.3rem var(--f-display);margin:0;text-wrap:balance}
@@ -83,7 +84,7 @@ footer{padding-top:28px;font-size:.8rem;color:var(--suave)}
     <div class="eyebrow">Bancada do técnico</div>
     <h1>O que eu indico quando o cliente pergunta <em>“o que eu compro?”</em></h1>
     <p>Cada item aqui resolve um problema que aparece toda semana na bancada. Para cada um, digo para que serve, para quem não serve e o que conferir antes de comprar.</p>
-    <p class="aviso">Os botões levam ao Mercado Livre. Se você comprar por eles, a Smart Care recebe uma comissão do Mercado Livre e você paga o mesmo preço.</p>
+    <p class="aviso">Todos os produtos são vendidos e entregues pelo Mercado Livre. Os botões levam ao Mercado Livre. Se você comprar por eles, a Smart Care recebe uma comissão do Mercado Livre e você paga o mesmo preço.</p>
   </section>
 
   <nav class="filtros" aria-label="Filtrar por problema">
@@ -107,7 +108,8 @@ footer{padding-top:28px;font-size:.8rem;color:var(--suave)}
           <div><dt>Por que este</dt><dd>Marca com boa garantia e 1TB, espaço para não precisar trocar de novo tão cedo.</dd></div>
           <div><dt class="at">Confira antes</dt><dd class="atencao">Seu computador precisa de slot M.2 NVMe (formato 2280). Em slot PCIe 3.0 ele funciona, com velocidade menor. Se o slot for só SATA, este não serve.</dd></div>
         </dl>
-        <a class="cta" href="https://meli.la/1zAXqF4" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+        <a class="cta" href="https://meli.la/1zAXqF4" target="_blank" rel="noopener sponsored">Comprar no Mercado Livre <span aria-hidden="true">→</span></a>
+        <p class="ml-nota">Veja o preço de hoje, o frete e o parcelamento no Mercado Livre.</p>
       </article>
       <article class="os">
         <div class="cab"><span>Upgrade</span><span>Memória</span></div>
@@ -118,7 +120,8 @@ footer{padding-top:28px;font-size:.8rem;color:var(--suave)}
           <div><dt>Por que este</dt><dd>Módulo de notebook (SODIMM) de marca conhecida, compatível com a maioria das placas DDR4.</dd></div>
           <div><dt class="at">Confira antes</dt><dd class="atencao">Muitos notebooks têm memória soldada ou nenhum slot livre. Também precisa ser DDR4, não DDR3 nem DDR5. Na dúvida, me mande o modelo do notebook.</dd></div>
         </dl>
-        <a class="cta" href="https://meli.la/1k6FFbC" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+        <a class="cta" href="https://meli.la/1k6FFbC" target="_blank" rel="noopener sponsored">Comprar no Mercado Livre <span aria-hidden="true">→</span></a>
+        <p class="ml-nota">Veja o preço de hoje, o frete e o parcelamento no Mercado Livre.</p>
       </article>
     </div>
   </section>
@@ -136,7 +139,8 @@ footer{padding-top:28px;font-size:.8rem;color:var(--suave)}
           <div><dt>Por que este</dt><dd>Processador Ryzen 5, SSD e tela Full HD na faixa de entrada. Já vem com Windows.</dd></div>
           <div><dt class="at">Confira antes</dt><dd class="atencao">256GB enche rápido com fotos e vídeos. Considere um HD externo ou nuvem. Confira se a memória dá para expandir antes de contar com isso.</dd></div>
         </dl>
-        <a class="cta" href="https://meli.la/1KXQtaX" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+        <a class="cta" href="https://meli.la/1KXQtaX" target="_blank" rel="noopener sponsored">Comprar no Mercado Livre <span aria-hidden="true">→</span></a>
+        <p class="ml-nota">Veja o preço de hoje, o frete e o parcelamento no Mercado Livre.</p>
       </article>
       <article class="os">
         <div class="cab"><span>Mais processador</span><span>Vem com Linux</span></div>
@@ -147,7 +151,8 @@ footer{padding-top:28px;font-size:.8rem;color:var(--suave)}
           <div><dt>Por que este</dt><dd>Ryzen 7 com 8 núcleos, SSD de 512GB e Wi‑Fi 6.</dd></div>
           <div><dt class="at">Confira antes</dt><dd class="atencao">Vem com Linux. Para usar Windows, é preciso licença e instalação. A Smart Care faz a instalação e deixa tudo configurado.</dd></div>
         </dl>
-        <a class="cta" href="https://meli.la/1xLfVPA" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+        <a class="cta" href="https://meli.la/1xLfVPA" target="_blank" rel="noopener sponsored">Comprar no Mercado Livre <span aria-hidden="true">→</span></a>
+        <p class="ml-nota">Veja o preço de hoje, o frete e o parcelamento no Mercado Livre.</p>
       </article>
       <article class="os">
         <div class="cab"><span>Trabalho</span><span>Windows 11</span></div>
@@ -158,7 +163,8 @@ footer{padding-top:28px;font-size:.8rem;color:var(--suave)}
           <div><dt>Por que este</dt><dd>Core i5 de 13ª geração, 512GB, tela 15,6" Full HD e 1,55kg.</dd></div>
           <div><dt class="at">Confira antes</dt><dd class="atencao">8GB atende escritório. Se você usa planilhas muito pesadas ou muitos programas juntos, procure 16GB.</dd></div>
         </dl>
-        <a class="cta" href="https://meli.la/2FQnsSu" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+        <a class="cta" href="https://meli.la/2FQnsSu" target="_blank" rel="noopener sponsored">Comprar no Mercado Livre <span aria-hidden="true">→</span></a>
+        <p class="ml-nota">Veja o preço de hoje, o frete e o parcelamento no Mercado Livre.</p>
       </article>
     </div>
   </section>
@@ -176,7 +182,8 @@ footer{padding-top:28px;font-size:.8rem;color:var(--suave)}
           <div><dt>Por que este</dt><dd>Uma peça só para monitor, cabo de rede e pendrives.</dd></div>
           <div><dt class="at">Confira antes</dt><dd class="atencao">Para o HDMI funcionar, a porta USB‑C do seu notebook precisa transmitir vídeo. Nem toda USB‑C faz isso.</dd></div>
         </dl>
-        <a class="cta" href="https://meli.la/2RbmvkV" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+        <a class="cta" href="https://meli.la/2RbmvkV" target="_blank" rel="noopener sponsored">Comprar no Mercado Livre <span aria-hidden="true">→</span></a>
+        <p class="ml-nota">Veja o preço de hoje, o frete e o parcelamento no Mercado Livre.</p>
       </article>
       <article class="os">
         <div class="cab"><span>Periférico</span><span>Bluetooth</span></div>
@@ -187,7 +194,8 @@ footer{padding-top:28px;font-size:.8rem;color:var(--suave)}
           <div><dt>Por que este</dt><dd>Logitech, conexão Bluetooth sem receptor, tamanho bom para levar na mochila.</dd></div>
           <div><dt class="at">Confira antes</dt><dd class="atencao">Seu computador precisa ter Bluetooth. A maioria dos notebooks tem; muitos desktops não.</dd></div>
         </dl>
-        <a class="cta" href="https://meli.la/2zULifa" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+        <a class="cta" href="https://meli.la/2zULifa" target="_blank" rel="noopener sponsored">Comprar no Mercado Livre <span aria-hidden="true">→</span></a>
+        <p class="ml-nota">Veja o preço de hoje, o frete e o parcelamento no Mercado Livre.</p>
       </article>
       <article class="os">
         <div class="cab"><span>Reuniões</span><span>USB</span></div>
@@ -198,7 +206,8 @@ footer{padding-top:28px;font-size:.8rem;color:var(--suave)}
           <div><dt>Por que este</dt><dd>Barata, liga direto na USB e já tem microfone.</dd></div>
           <div><dt class="at">Confira antes</dt><dd class="atencao">É uma câmera para reunião. Para gravar conteúdo ou ambiente com pouca luz, invista em um modelo de marca.</dd></div>
         </dl>
-        <a class="cta" href="https://meli.la/2bedWTe" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+        <a class="cta" href="https://meli.la/2bedWTe" target="_blank" rel="noopener sponsored">Comprar no Mercado Livre <span aria-hidden="true">→</span></a>
+        <p class="ml-nota">Veja o preço de hoje, o frete e o parcelamento no Mercado Livre.</p>
       </article>
     </div>
   </section>
@@ -216,7 +225,8 @@ footer{padding-top:28px;font-size:.8rem;color:var(--suave)}
           <div><dt>Por que este</dt><dd>Barato, portas Gigabit e rede 5GHz. Fabricado pela TP‑Link.</dd></div>
           <div><dt class="at">Confira antes</dt><dd class="atencao">Em casa grande ou com muitas paredes, um roteador só não resolve. Nesse caso, o caminho é rede mesh.</dd></div>
         </dl>
-        <a class="cta" href="https://meli.la/2sMXVBm" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+        <a class="cta" href="https://meli.la/2sMXVBm" target="_blank" rel="noopener sponsored">Comprar no Mercado Livre <span aria-hidden="true">→</span></a>
+        <p class="ml-nota">Veja o preço de hoje, o frete e o parcelamento no Mercado Livre.</p>
       </article>
       <article class="os">
         <div class="cab"><span>Roteador</span><span>Wi‑Fi 6 · mesh</span></div>
@@ -227,7 +237,8 @@ footer{padding-top:28px;font-size:.8rem;color:var(--suave)}
           <div><dt>Por que este</dt><dd>Wi‑Fi 6 e EasyMesh: depois dá para somar outro aparelho e cobrir a casa toda.</dd></div>
           <div><dt class="at">Confira antes</dt><dd class="atencao">Celulares e notebooks antigos não usam Wi‑Fi 6. Ele funciona com todos, mas o ganho maior é nos aparelhos novos.</dd></div>
         </dl>
-        <a class="cta" href="https://meli.la/1CkBvaA" target="_blank" rel="noopener sponsored">Ver preço de hoje</a>
+        <a class="cta" href="https://meli.la/1CkBvaA" target="_blank" rel="noopener sponsored">Comprar no Mercado Livre <span aria-hidden="true">→</span></a>
+        <p class="ml-nota">Veja o preço de hoje, o frete e o parcelamento no Mercado Livre.</p>
       </article>
     </div>
   </section>
